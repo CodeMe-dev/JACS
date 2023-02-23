@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
-    <head>
-    <style>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://kit.fontawesome.com/114463f0c8.js" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<style>
 .container {
   padding: 2rem 0rem;
 }
@@ -10,11 +13,9 @@ h4 {
   margin: 2rem 0rem 1rem;
 }
 
-.table-image {
-  td,th {
+.td,th {
     vertical-align: middle;
   }
-}
 </style>   
     </head>
     <body>
@@ -24,10 +25,10 @@ h4 {
       <table class="table table-bordered">
         <thead>
           <tr>
-            <th scope="col">Day</th>
-            <th scope="col">Article Name</th>
-            <th scope="col">Author</th>
-            <th scope="col">Shares</th>
+            <th scope="col">Number</th>
+            <th scope="col">Table</th>
+            <th scope="col">New Table</th>
+            <th scope="col">Status</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
@@ -38,29 +39,7 @@ h4 {
             <td>Cristina</td>
             <td>2.846</td>
             <td>
-              <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
-              <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-            <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Bootstrap Grid 4 Tutorial and Examples</td>
-            <td>Cristina</td>
-            <td>3.417</td>
-            <td>
-              <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
-              <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-            <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Bootstrap Flexbox Tutorial and Examples</td>
-            <td>Cristina</td>
-            <td>1.234</td>
-            <td>
-              <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
+              <button type="button" class="btn btn-primary"><i class="fa-solid fa-circle-check"></i></button>
               <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
             <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
             </td>
