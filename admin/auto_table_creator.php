@@ -1,3 +1,25 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "jacs_db";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+// Check connection
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
+}
+
+// Select data from table
+$sql = "SELECT * FROM users";
+$result = mysqli_query($conn, $sql);
+
+mysqli_close($conn);
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,24 +47,31 @@ h4 {
       <table class="table table-bordered">
         <thead>
           <tr>
-            <th scope="col">Number</th>
-            <th scope="col">Table</th>
-            <th scope="col">New Table</th>
-            <th scope="col">Status</th>
+            <th scope="col">ID</th>
+            <th scope="col">Firstname</th>
+            <th scope="col">last Name</th>
+            <th scope="col">Email</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <th scope="row">1</th>
-            <td>Bootstrap 4 CDN and Starter Template</td>
-            <td>Cristina</td>
-            <td>2.846</td>
+          <?php
+                while($rows=$result->fetch_assoc())
+                {
+            ?>
+            <tr>
+                <td><?php echo $rows['id'];?></td>
+                <td><?php echo $rows['firstname'];?></td>
+                <td><?php echo $rows['lastname'];?></td>
+                <td><?php echo $rows['email'];?></td>
             <td>
               <button type="button" class="btn btn-primary"><i class="fa-solid fa-circle-check"></i></button>
               <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
             <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-            </td>
+            <?php
+                }
+            ?>
           </tr>
         </tbody>
       </table>
@@ -51,47 +80,3 @@ h4 {
 </div>
 </body>
 </html>
-
-<?php
-// Connect to database
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "jacs_db";
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-
-$table_name = "usersa";
-$query = "SELECT 1 FROM $table_name LIMIT 1";
-$result = mysqli_query($conn, $query);
-
-if($result !== false) {
-    // Table exists, reject creation
-    echo "Table already exists";
-} else {
-
-// Create table
-$sql = "CREATE TABLE $table_name (
-    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    firstname VARCHAR(30) NOT NULL,
-    lastname VARCHAR(30) NOT NULL,
-    email VARCHAR(50),
-    reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-)";
-if (mysqli_query($conn, $sql)) {
-    echo "Table created successfully";
-} else {
-    echo "Error creating table: " . mysqli_error($conn);
-}
-
-// Delete table
-$delete_tb = "usersa";
-$sql = "DROP TABLE users";
-if (mysqli_query($conn, $sql)) {
-    echo "Table deleted successfully";
-} else {
-    echo "Error deleting table: " . mysqli_error($conn);
-}
-
-}
-mysqli_close($conn);
-?>
