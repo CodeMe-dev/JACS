@@ -51,6 +51,7 @@ h4 {
             <th scope="col">Firstname</th>
             <th scope="col">last Name</th>
             <th scope="col">Email</th>
+            <th scope="col">Registered</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
@@ -65,10 +66,11 @@ h4 {
                 <td><?php echo $rows['firstname'];?></td>
                 <td><?php echo $rows['lastname'];?></td>
                 <td><?php echo $rows['email'];?></td>
+                <td><?php echo $rows['reg_date'];?></td>
             <td>
               <button type="button" class="btn btn-primary"><i class="fa-solid fa-circle-check"></i></button>
               <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-            <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+            <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>  
             <?php
                 }
             ?>
@@ -78,5 +80,6 @@ h4 {
     </div>
   </div>
 </div>
+
 </body>
 </html>
